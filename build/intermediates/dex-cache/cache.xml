@@ -3,21 +3,21 @@
 
     <item
         is-multidex="true"
-        jar="/home/niedaocai/AndroidStudioProjects/HeroJigsawPuzzle/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jar="/Users/niedaocai/AndroidStudioProjects/HeroJigsawPuzzle/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="21.1.2"
-        sha1="404469efb1d6d59996d57f039da955211b79d8d7">
-        <dex dex="/home/niedaocai/AndroidStudioProjects/HeroJigsawPuzzle/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_417a569126dba83f7c6075b4f850fb19deef853e/classes.dex" />
+        sha1="bd1e38335bc776604057df4604ea5acfcb246e0e">
+        <dex dex="/Users/niedaocai/AndroidStudioProjects/HeroJigsawPuzzle/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_721a394b1b7141b7a12ab1225bb76095244a5a7c/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/home/niedaocai/AndroidStudioProjects/HeroJigsawPuzzle/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jar="/Users/niedaocai/AndroidStudioProjects/HeroJigsawPuzzle/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="21.1.2"
-        sha1="fffb9cf9c06e318b545ef77c16606c4602adfa43">
-        <dex dex="/home/niedaocai/AndroidStudioProjects/HeroJigsawPuzzle/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_692dab05266eff91c409ebb52a4621fedfa7875f/classes.dex" />
+        sha1="f5d03ee876f8b06f3a71cf3d2b3b8b4ed063c5f1">
+        <dex dex="/Users/niedaocai/AndroidStudioProjects/HeroJigsawPuzzle/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_f4364bf6c774157a6cef5e0b3e8c001ddcc59320/classes.dex" />
     </item>
 
 </items>
