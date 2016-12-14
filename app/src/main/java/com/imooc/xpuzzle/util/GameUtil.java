@@ -71,7 +71,7 @@ public class GameUtil {
                     PuzzleMain.TYPE * PuzzleMain.TYPE);
             swapItems(mItemBeans.get(index), GameUtil.mBlankItemBean);
         }
-        List<Integer> data = new ArrayList<Integer>();
+        List<Integer> data = new ArrayList<>();
         for (int i = 0; i < mItemBeans.size(); i++) {
             data.add(mItemBeans.get(i).getBitmapId());
         }
@@ -106,7 +106,17 @@ public class GameUtil {
 
     /**
      * 该数据是否有解
-     *
+
+     N puzzle问题的解
+     假设是3x3的序列A：A0, A1, … A7，
+     其中有一个空白X;
+     序列A的倒置和为SumA
+     1. 如果序列的元素个数(此处为9)是奇数的，那么,
+        SumA为偶数，则有解。SumA为奇数则无解
+     2. 如果序列的元素个数(此处为9)是偶数的，那么,
+        当X位于从下往上数的奇数行中，SumA为偶数则有解
+        当X位于从下往上数的偶数行中，SumA为奇数则有解
+     TODO：验证此算法
      * @param data 拼图数组数据
      * @return 该数据是否有解
      */
@@ -128,7 +138,19 @@ public class GameUtil {
     }
 
     /**
-     * 计算倒置和算法
+     * 计算倒置和算法:
+
+     假设是3x3的序列A：A0, A1, … A7，
+     其中有一个空白X;
+     倒置和算法是这样的：
+     A0的倒置和T0=A1, A2, …A7中，比A0小的数的个数，不包括X
+     A1的倒置和T1=A2, A3, …A7中，比A1小的数的个数，不包括X
+     A2的倒置和T2=A3, A4, …A7中，比A2小的数的个数，不包括X
+     ...
+     A7的倒置和T7=0
+     X的位置的倒置也不算。
+     序列A的倒置和SumA=T0+T1+…+T7
+
      *
      * @param data 拼图数组数据
      * @return 该序列的倒置和
