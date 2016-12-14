@@ -31,7 +31,7 @@ public class ImagesUtil {
     public void createInitBitmaps(int type, Bitmap picSelected,
                                   Context context) {
         Bitmap bitmap = null;
-        List<Bitmap> bitmapItems = new ArrayList<Bitmap>();
+        List<Bitmap> bitmapItems = new ArrayList<>();
         // 每个Item的宽高
         int itemWidth = picSelected.getWidth() / type;
         int itemHeight = picSelected.getHeight() / type;

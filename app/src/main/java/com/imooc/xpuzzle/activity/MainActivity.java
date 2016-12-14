@@ -14,6 +14,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,6 +39,7 @@ import java.util.List;
  * @author xys
  */
 public class MainActivity extends Activity implements OnClickListener {
+    private static final String TAG = "MainActivity";
 
     // 返回码：系统图库
     private static final int RESULT_IMAGE = 100;
@@ -73,7 +75,7 @@ public class MainActivity extends Activity implements OnClickListener {
         TEMP_IMAGE_PATH =
                 Environment.getExternalStorageDirectory().getPath() +
                         "/temp.png";
-        mPicList = new ArrayList<Bitmap>();
+        mPicList = new ArrayList<>();
         // 初始化Views
         initViews();
         // 数据适配器
@@ -131,7 +133,10 @@ public class MainActivity extends Activity implements OnClickListener {
                             intent.setDataAndType(
                                     MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
                                     IMAGE_TYPE);
-                            startActivityForResult(intent, RESULT_IMAGE);
+                            if (intent.resolveActivity(getPackageManager()) != null) {
+                                startActivityForResult(intent, RESULT_IMAGE);
+                            }
+
                         } else if (1 == which) {
                             // 系统相机
                             Intent intent = new Intent(
@@ -154,6 +159,8 @@ public class MainActivity extends Activity implements OnClickListener {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        Log.d(TAG, "onActivityResult: resultCode=" + resultCode + ",requestCode=" + requestCode
+                + ",data=" + data);
         if (resultCode == RESULT_OK) {
             if (requestCode == RESULT_IMAGE && data != null) {
                 // 相册
@@ -165,7 +172,7 @@ public class MainActivity extends Activity implements OnClickListener {
                 Intent intent = new Intent(
                         MainActivity.this,
                         PuzzleMain.class);
-                intent.putExtra("picPath", imagePath);
+                intent.putExtra("mPicPath", imagePath);
                 intent.putExtra("mType", mType);
                 cursor.close();
                 startActivity(intent);

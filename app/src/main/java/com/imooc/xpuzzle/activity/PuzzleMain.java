@@ -82,7 +82,7 @@ public class PuzzleMain extends Activity implements OnClickListener {
     // 计时器
     private TextView mTvTimer;
     // 切图后的图片
-    private List<Bitmap> mBitmapItemLists = new ArrayList<Bitmap>();
+    private List<Bitmap> mBitmapItemLists = new ArrayList<>();
     // GridView适配器
     private GridItemsAdapter mAdapter;
     // Flag 是否已显示原图
@@ -300,9 +300,9 @@ public class PuzzleMain extends Activity implements OnClickListener {
     private void handlerImage(Bitmap bitmap) {
         // 将图片放大到固定尺寸
         int screenWidth = ScreenUtil.getScreenSize(this).widthPixels;
-        int screenHeigt = ScreenUtil.getScreenSize(this).heightPixels;
+        int screenHeight = ScreenUtil.getScreenSize(this).heightPixels;
         mPicSelected = new ImagesUtil().resizeBitmap(
-                screenWidth * 0.8f, screenHeigt * 0.6f, bitmap);
+                screenWidth * 0.8f, screenHeight * 0.6f, bitmap);
     }
 
     /**

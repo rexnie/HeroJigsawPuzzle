@@ -14,7 +14,7 @@ import java.util.List;
 public class GameUtil {
 
     // 游戏信息单元格Bean
-    public static List<ItemBean> mItemBeans = new ArrayList<ItemBean>();
+    public static List<ItemBean> mItemBeans = new ArrayList<>();
     // 空格单元格
     public static ItemBean mBlankItemBean = new ItemBean();
 
@@ -28,11 +28,11 @@ public class GameUtil {
         int type = PuzzleMain.TYPE;
         // 获取空格Item
         int blankId = GameUtil.mBlankItemBean.getItemId() - 1;
-        // 不同行 相差为type
+        // 不同行 相差为type, 上下行
         if (Math.abs(blankId - position) == type) {
             return true;
         }
-        // 相同行 相差为1
+        // 相同行 相差为1，前后的位置
         if ((blankId / type == position / type) &&
                 Math.abs(blankId - position) == 1) {
             return true;
@@ -90,10 +90,11 @@ public class GameUtil {
      */
     public static boolean isSuccess() {
         for (ItemBean tempBean : GameUtil.mItemBeans) {
-            if (tempBean.getBitmapId() != 0 &&
+            if (tempBean.getBitmapId() != 0 && // 1 -- (N*N-1)的bitmap
                     (tempBean.getItemId()) == tempBean.getBitmapId()) {
+                // itemId是有序的，如果itemId==bitmapId, 即表示已排序
                 continue;
-            } else if (tempBean.getBitmapId() == 0 &&
+            } else if (tempBean.getBitmapId() == 0 &&  // 空白bitmap
                     tempBean.getItemId() == PuzzleMain.TYPE * PuzzleMain.TYPE) {
                 continue;
             } else {
